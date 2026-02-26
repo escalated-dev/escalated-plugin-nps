@@ -16,16 +16,21 @@ Net Promoter Score survey system that measures customer loyalty through schedule
 - NPS widget for reports dashboard
 
 ## Installation
-```bash
-npm install @escalated-dev/escalated-plugin-nps
-```
 
-## Configuration
-Register in your Escalated plugin configuration:
-```javascript
-import plugin from '@escalated-dev/escalated-plugin-nps';
-// Register with your Escalated instance
+### Via ZIP Upload
+1. Download the latest release ZIP from this repository
+2. In Escalated admin, go to **Settings > Plugins**
+3. Click **Upload Plugin** and select the ZIP file
+4. Activate the plugin from the plugins list
+
+### Via Composer
+```bash
+composer require escalated-dev/escalated-plugin-nps
 ```
+Then activate the plugin from **Settings > Plugins** in Escalated admin.
+
+### Requirements
+- Escalated >= 0.6.0
 
 ## Status
 This plugin is in early development. See TODO.md for implementation status.

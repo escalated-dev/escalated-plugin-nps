@@ -1,0 +1,10 @@
+{
+    "name": "NPS Surveys",
+    "slug": "nps",
+    "description": "Net Promoter Score surveys with scheduling and analytics",
+    "version": "0.1.0",
+    "author": "Escalated",
+    "author_url": "https://github.com/escalated-dev",
+    "requires": "0.6.0",
+    "main_file": "Plugin.php"
+}
