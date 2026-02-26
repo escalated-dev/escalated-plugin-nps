@@ -1,0 +1,11 @@
+{
+    "name": "@escalated-dev/escalated-plugin-nps",
+    "version": "0.1.0",
+    "description": "Net Promoter Score surveys with scheduling and analytics",
+    "main": "src/index.js",
+    "peerDependencies": {
+        "@escalated-dev/escalated": "^0.6.0",
+        "vue": "^3.4.0"
+    },
+    "keywords": ["escalated", "plugin", "nps", "survey", "net-promoter-score", "feedback", "analytics"]
+}
