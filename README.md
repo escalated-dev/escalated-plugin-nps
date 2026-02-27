@@ -23,12 +23,6 @@ Net Promoter Score survey system that measures customer loyalty through schedule
 3. Click **Upload Plugin** and select the ZIP file
 4. Activate the plugin from the plugins list
 
-### Via Composer
-```bash
-composer require escalated-dev/escalated-plugin-nps
-```
-Then activate the plugin from **Settings > Plugins** in Escalated admin.
-
 ### Requirements
 - Escalated >= 0.6.0
 
