@@ -1,30 +1,32 @@
-# Escalated Plugin: NPS Surveys
+# @escalated-dev/plugin-nps
 
-Net Promoter Score survey system that measures customer loyalty through scheduled surveys after ticket resolution, with comprehensive analytics for tracking promoters, passives, and detractors over time.
+Net Promoter Score survey system with automated scheduling, analytics, and contact-level history. Sends NPS surveys after ticket resolution with configurable delay and frequency throttling.
 
-## Features (Planned)
-- NPS survey creation and customization
-- Automated survey scheduling after ticket resolution
-- Email and in-app survey delivery
-- NPS score dashboard with trend analysis
-- Promoter/Passive/Detractor segmentation
-- Breakdown by agent, team, and category
-- Follow-up automation for detractor responses
-- Survey throttling to prevent over-surveying
-- Individual response detail view
-- Export data to CSV and PDF
-- NPS widget for reports dashboard
+## Features
 
-## Installation
+- Automated survey queuing after ticket resolution with configurable delay
+- Throttling to prevent survey fatigue (min days between surveys per contact)
+- NPS score calculation: promoters (9-10), passives (7-8), detractors (0-6)
+- Admin notification on detractor responses
+- NPS Dashboard admin page with trend analysis
+- NPS Score dashboard widget (quarter size) with live score badge
+- NPS contact history panel on contact detail view
+- NPS Score column in ticket list view
 
-### Via ZIP Upload
-1. Download the latest release ZIP from this repository
-2. In Escalated admin, go to **Settings > Plugins**
-3. Click **Upload Plugin** and select the ZIP file
-4. Activate the plugin from the plugins list
+## Hooks
 
-### Requirements
-- Escalated >= 0.6.0
+| Type | Hook | Description |
+|------|------|-------------|
+| Action | `ticket.resolved` | Queues a survey for delivery after the configured delay |
+| Filter | `ticket.list.columns` | Adds NPS Score column to ticket list |
+| Cron | `every:1h` | Sends due surveys, applying throttle rules |
 
-## Status
-This plugin is in early development. See TODO.md for implementation status.
+## Endpoints
+
+| Method | Path | Capability |
+|--------|------|-----------|
+| GET | `/responses` | `view_reports` |
+| POST | `/responses` | public (survey link) |
+| GET | `/score` | `view_reports` |
+| GET | `/settings` | `manage_settings` |
+| POST | `/settings` | `manage_settings` |
