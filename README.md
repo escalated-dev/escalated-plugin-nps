@@ -1,5 +1,7 @@
 # Escalated Plugin: NPS
 
+[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-nps.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-nps/)
+
 **Website:** [escalated.dev](https://escalated.dev)
 
 Net Promoter Score survey system for Escalated with automated scheduling, analytics, and contact-level history. Sends NPS surveys after ticket resolution with configurable delay and frequency throttling.
