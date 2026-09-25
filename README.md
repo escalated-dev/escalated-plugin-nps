@@ -63,4 +63,4 @@ npm install @escalated-dev/plugin-nps
 
 ## License
 
-MIT
+MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
