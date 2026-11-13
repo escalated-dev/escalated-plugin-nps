@@ -1,66 +1,67 @@
-# Escalated Plugin: NPS
+<p align="center">
+  <a href="https://escalated.dev"><img src="https://raw.githubusercontent.com/escalated-dev/escalated/main/docs/assets/readme/logo.png" width="56" height="56" alt="Escalated"></a>
+</p>
 
-[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-nps.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-nps/)
+<h1 align="center">NPS plugin for Escalated</h1>
 
-**Website:** [escalated.dev](https://escalated.dev)
+<p align="center">Net Promoter Score surveys after every resolved ticket.</p>
 
-Net Promoter Score survey system for Escalated with automated scheduling, analytics, and contact-level history. Sends NPS surveys after ticket resolution with configurable delay and frequency throttling.
+<p align="center">
+  <a href="https://escalated.dev"><b>Website</b></a> ·
+  <a href="https://escalated.dev/docs"><b>Docs</b></a> ·
+  <a href="https://escalated.dev/cloud"><b>Cloud</b></a> ·
+  <a href="https://github.com/escalated-dev/escalated-plugin-nps/releases"><b>Releases</b></a>
+</p>
+
+This plugin sends an NPS survey after a ticket is resolved, scores the answers, and shows the results on a dashboard, a widget and each contact's history. It's for support teams that want to measure how customers feel without asking them too often.
 
 ## Features
 
-- Automated survey queuing after ticket resolution with configurable delay
-- Contact throttling to prevent survey fatigue (minimum days between surveys)
-- NPS score calculation: promoters (9-10), passives (7-8), detractors (0-6)
-- Admin notification on detractor responses
-- NPS Dashboard admin page with score analytics
-- NPS Score dashboard widget with live score badge
-- NPS contact history panel on contact detail view
-- NPS Score column in ticket list view
-- Public survey response endpoint for email survey links
+<table>
+<tr>
+<td width="33%" valign="top">
 
-## Configuration
+**Surveys**
+- Sent after resolution, with a configurable delay
+- Throttled per contact to avoid survey fatigue
+- Public response endpoint for email links
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `enabled` | boolean | No | Enable NPS surveys. Defaults to `true`. |
-| `delay_hours` | number | No | Hours after ticket resolution before sending survey. Defaults to `24`. |
-| `throttle_days` | number | No | Minimum days between surveys per contact. Defaults to `90`. |
-| `question` | textarea | No | Survey question text. |
-| `follow_up_promoter` | textarea | No | Follow-up text shown to promoters (score 9-10). |
-| `follow_up_detractor` | textarea | No | Follow-up text shown to detractors (score 0-6). |
-| `notify_on_detractor` | boolean | No | Notify the assigned agent when a detractor response is received. Defaults to `true`. |
+</td>
+<td width="33%" valign="top">
 
-## Admin Pages
+**Scoring**
+- Promoters, passives and detractors scored
+- Admin notified on detractor responses
 
-- **nps** — NPS dashboard with score analytics, response history, and trend analysis.
+</td>
+<td width="33%" valign="top">
 
-## Hooks
+**Reporting**
+- NPS dashboard with score analytics
+- Dashboard widget with live score
+- NPS history on each contact
+- NPS Score column in the ticket list
 
-### Actions
-- `ticket.resolved` — Queues a survey for delivery after the configured delay.
+</td>
+</tr>
+</table>
 
-### Filters
-- `ticket.list.columns` — Adds an NPS Score column to the ticket list view.
+<p align="center"><sub><a href="docs/features.md">Every feature in detail</a></sub></p>
 
-### Cron
-- `every:1h` — Sends due surveys with contact throttle enforcement.
+<p align="center">
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"></a>
+  <a href="https://vuejs.org"><img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js"></a>
+</p>
 
-## Endpoints
+## Learn more
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/responses` | List survey responses, optionally filtered by contact_id. |
-| POST | `/responses` | Submit a survey response (public, called from survey email link). |
-| GET | `/score` | Calculate NPS score for a given time period (default 30 days). |
-| GET | `/settings` | Get plugin configuration. |
-| POST | `/settings` | Save plugin configuration. |
-
-## Installation
-
-```bash
-npm install @escalated-dev/plugin-nps
-```
+- [Every feature](docs/features.md)
+- [Configuration, hooks and endpoints](docs/reference.md)
+- [Plugin SDK](https://github.com/escalated-dev/escalated-plugin-sdk): how Escalated plugins are built
+- [Escalated docs](https://escalated.dev/docs)
+- [Escalated](https://github.com/escalated-dev/escalated), the main repo
 
 ## License
 
-MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
+MIT. Copyright (c) 2026 Escalated.dev. See [LICENSE](LICENSE).
